@@ -1,0 +1,26 @@
+.splash-bg{width:100vw; height: 100vh; background-color: #000;}
+#splash-bg {animation: hideSplashScreen 3s ease-in-out forwards; animation-delay: 3s; animation-fill-mode: forwards;}
+
+.splash-logo{ position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);}
+#splash-logo{animation: sizeup 3s linear forwards; animation-delay: 3s; }
+
+@keyframes hideSplashScreen {
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+    }
+}
+@keyframes sizeup {
+    from {
+        opacity:1;
+        width: calc(700%);
+        
+      }
+    to {
+      opacity:1;
+      width: calc(700%);
+    }
+}
+

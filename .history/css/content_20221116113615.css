@@ -1,0 +1,17 @@
+.splash-bg{width:100vw; height: 100vh; background-color: #000;}
+.splash-logo{position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);}
+
+
+.splash-bg{animation: hideSplashScreen 0.4s ease-in-out forwards;}
+
+
+@keyframes hideSplashScreen {
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+=

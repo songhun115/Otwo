@@ -1,0 +1,29 @@
+.splash-bg{width:100vw; height: 100vh; background-color: #000;}
+.splash-bg {animation: hideSplashScreen 1s ease-in-out forwards; animation-delay: 3s; animation-fill-mode: forwards;}
+
+.splash-logo{ position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);}
+.splash-logo{animation: sizeup 1s linear forwards; animation-delay: 3s; }
+.splash-logo img {width: 100%;}
+
+@keyframes hideSplashScreen {
+    0%{
+        opacity: 1;
+        
+    }
+    100%{
+        opacity: 0;
+        display: none;
+        z-index: -10;
+    }
+}
+@keyframes sizeup {
+    100% {
+        opacity:1;
+        width: calc(100%);
+      }
+    0% {
+      opacity:0;
+      width: calc(700%);
+    }
+}
+
