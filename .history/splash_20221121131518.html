@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .splash-bg{width: 100vw; height: 100vh; }
+    #splash-bg{animation: splash 3s linear forwards;animation-fill-mode: forwards;} 
+    .splash-bg img {width: 100%;}
+    @keyframes splash {
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+        display: none;
+        z-index: -10;
+    }
+}
+
+
+</style>
+<body>
+    <div id="splash-bg" class="splash-bg">
+        <img src="ss.png" alt="">
+    </div>
+</body>
+</html>

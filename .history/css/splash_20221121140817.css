@@ -1,0 +1,83 @@
+#splash-bg{animation: hideSplashScreen; width: 100vw; height: 100vh; position: fixed; top: 0; left: 0; background-color: #000;}
+@keyframes hideSplashScreen {
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+/* .splash-bg{width:100vw; height: 100vh; background-color: #000;}
+#splash-bg {animation: hideSplashScreen 3s ease-in-out forwards; animation-delay: 3s; animation-fill-mode: forwards;}
+
+.splash-logo{ position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);}
+#splash-logo{animation: sizeup 3s linear forwards; animation-delay: 3s; }
+.splash-logo img {width: 100%;}
+
+@keyframes hideSplashScreen {
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+        visibility: hidden;
+        display: none;
+    }
+}
+@keyframes sizeup {
+    from {
+        opacity:1;
+        width: calc(0%);
+        
+      }
+    to {
+      opacity:0;
+      width: calc(400%);
+      visibility: hidden;
+      display: none;
+    }
+} */
+
+
+
+
+
+/* #friend-display-link {
+    text-align: center;
+    display: block;
+    background-color: rgb(241, 241, 241);
+    padding: 15px 0px;
+    font-size: 15px;
+    margin-bottom: 16px;
+    margin-top: -15px;
+}
+    #friend-display-link i{
+    color: rgba(0, 0, 0, 0.2);
+}
+.friends-screen {
+    padding:0px var(--horizontal-space);
+}
+@keyframes hideSplashScreen {
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+#splash-screen {
+    background-color: var(--yellow);
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    font-size: 64px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: hideSplashScreen 0.4s ease-in-out forwards;
+    animation-delay: 2s;
+} */

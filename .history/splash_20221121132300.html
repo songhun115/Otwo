@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/splash.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>Document</title>
+</head>
+<style>
+ 
+
+</style>
+<body>
+    <div class="parent">
+
+        <p class="paragraph">Here you will witness the power of CSS animation
+        </p>
+        
+        <div class="wrapper">
+        <button class=" button button--disapear">Click Me, and see me vanish</button>
+        <button class=" button button--trigger">Click Me to show</button>
+        </div>
+         </div>
+</body>
+<script>
+    $('.button--trigger').on('click', function(e) {
+  $('.button--disapear').show();
+  $('.button--disapear').removeClass('out').addClass('active');
+});
+
+$('.button--disapear').on('click', function(e) {
+  $(this).removeClass('active').addClass('out');
+
+			setTimeout(function(){
+				$('.button--disapear').hide() 
+			}, 300); //Same time as animation
+});
+</script>
+</html>
