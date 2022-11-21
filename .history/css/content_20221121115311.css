@@ -57,7 +57,7 @@ body{background-color: #000; color: #fff;}
   
   
   /*!메인 Business */
-  .business{padding: 320px 20px 0 20px;}
+  .business{padding-top: 320px 20px 0 20px;}
   .business-box{display: flex; justify-content: space-between; align-items: center;}
   .business-box-left .pur-button{margin-top: 80px;}
   .business-box-left{width: 58%;}
