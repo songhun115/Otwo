@@ -118,7 +118,7 @@ body.over{overflow: hidden;}
   .modal-bg.show{display: block;}
 
   .advisor-modal-box{display: flex;}
-  .modal-close{position:absolute; top: 30px; right:40px;  z-index: 1; cursor: pointer;}
+  .modal-close{position:absolute; top: 30px; right:40px;  z-index: 1;}
   .advisor-modal-con{display: flex; flex-direction: column; justify-content: space-between; margin-left: 40px;}
   .advisor-modal-con h4{font-size: 13px;}
   .advisor-modal-con h5{font-size: 20px; font-weight: 700;}

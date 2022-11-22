@@ -40,54 +40,54 @@ $(document).ready(function () {
     })
     $('.advisor-member-modal03').click(function(){
         $('body').addClass('over');
-        $('.advisor-modal03').addClass('show');
+        $('.advisor-modal02').addClass('show');
         $('.modal-bg').addClass('show')
     })
    
     $('.advisor-member-modal04').click(function(){
         $('body').addClass('over');
-        $('.advisor-modal04').addClass('show');
+        $('.advisor-modal02').addClass('show');
         $('.modal-bg').addClass('show')
     })
    
     $('.advisor-member-modal05').click(function(){
         $('body').addClass('over');
-        $('.advisor-modal05').addClass('show');
+        $('.advisor-modal02').addClass('show');
         $('.modal-bg').addClass('show')
     })
    
     $('.advisor-member-modal06').click(function(){
         $('body').addClass('over');
-        $('.advisor-modal06').addClass('show');
+        $('.advisor-modal02').addClass('show');
         $('.modal-bg').addClass('show')
     })
    
     $('.advisor-member-modal07').click(function(){
         $('body').addClass('over');
-        $('.advisor-modal07').addClass('show');
+        $('.advisor-modal02').addClass('show');
         $('.modal-bg').addClass('show')
     })
    
     $('.advisor-member-modal08').click(function(){
         $('body').addClass('over');
-        $('.advisor-modal08').addClass('show');
+        $('.advisor-modal02').addClass('show');
         $('.modal-bg').addClass('show')
     })
    
     $('.advisor-member-modal09').click(function(){
         $('body').addClass('over');
-        $('.advisor-modal09').addClass('show');
+        $('.advisor-modal02').addClass('show');
         $('.modal-bg').addClass('show')
     })
    
     $('.advisor-member-modal10').click(function(){
         $('body').addClass('over');
-        $('.advisor-modal10').addClass('show');
+        $('.advisor-modal02').addClass('show');
         $('.modal-bg').addClass('show')
     })
     $('.advisor-member-modal11').click(function(){
         $('body').addClass('over');
-        $('.advisor-modal11').addClass('show');
+        $('.advisor-modal02').addClass('show');
         $('.modal-bg').addClass('show')
     })
    

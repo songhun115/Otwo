@@ -114,11 +114,11 @@ body.over{overflow: hidden;}
   /*!모달  */
   .advisor-modal{width: 70%; display: none; position: fixed; left: 50%; top: 50%; transform: translate(-50%,-50%);  background-color: #2F2F2F;  z-index: 1; padding: 40px 60px;}
   .advisor-modal.show{display: block;}
-  .modal-bg{display: none; background-color: rgba(0, 0, 0, 0.8); position: fixed;left: 0; top: 0; width: 100vw; height: 100vh; cursor: pointer;}
+  .modal-bg{display: none; background-color: rgba(0, 0, 0, 0.8); position: fixed;left: 50%; top: 0; width: 50vw; height: 100vh; cursor: pointer;}
   .modal-bg.show{display: block;}
 
   .advisor-modal-box{display: flex;}
-  .modal-close{position:absolute; top: 30px; right:40px;  z-index: 1; cursor: pointer;}
+  .modal-close{position:absolute; top: 30px; right:40px;  z-index: 1;}
   .advisor-modal-con{display: flex; flex-direction: column; justify-content: space-between; margin-left: 40px;}
   .advisor-modal-con h4{font-size: 13px;}
   .advisor-modal-con h5{font-size: 20px; font-weight: 700;}
