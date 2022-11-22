@@ -165,7 +165,7 @@ body.over{overflow: hidden;}
   .sub-description strong{font-weight: 700;}
   .sub-description-nm{margin-top:0;}
   /*!서브페이지  */
-  .sub-sec{padding:0 20px; box-sizing: border-box;}
+  .sub-sec{padding:0 20px}
   @media(max-width:765px){
     
     .platform-list{padding: 0;}

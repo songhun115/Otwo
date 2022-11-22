@@ -92,7 +92,7 @@
             var canvas = $('<canvas/>').attr({ width: size.x, height: size.y }).appendTo(container),
                 context = canvas.get(0).getContext("2d");
             canvas.addClass('canvas-one')
-            canvas.wrap('<div></div>');
+            canvas.wrap('<section></section>');
             canvas.parent().addClass('canvas-one-wrap')
 
             var waveFrequency = 20;
@@ -255,6 +255,7 @@
             <h3>TEAM</h3>
             <h2>O2 PLATFORM <br /> ADVISOR</h2>
             <div class="advisor-member">
+
                 <ul class="advisor-member-list">
                     <li class="advisor-member-item advisor-member-modal advisor-member-modal01">
                         <div class="member-photo">
@@ -701,9 +702,7 @@
                     <button>MORE</button>
                 </div>
             </div>
-            <div class="mb-advisor-member">
-            </div>
-    
+
         </section>
     </div>
     <div id="canvas">
@@ -711,6 +710,7 @@
             <p>SCROLL DOWN</p>
             <img src="img/chevron-up.svg" alt="">
         </div>
+
     </div>
     <script>
         window.addEventListener("DOMContentLoaded", () => {

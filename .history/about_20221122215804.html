@@ -703,7 +703,21 @@
             </div>
             <div class="mb-advisor-member">
             </div>
-    
+            <script>
+                var swiper = new Swiper(".mySwiper", {
+        grabCursor: true,
+        effect: "creative",
+        creativeEffect: {
+          prev: {
+            shadow: true,
+            translate: [0, 0, -400],
+          },
+          next: {
+            translate: ["100%", 0, 0],
+          },
+        },
+      });
+            </script>
         </section>
     </div>
     <div id="canvas">
@@ -711,6 +725,7 @@
             <p>SCROLL DOWN</p>
             <img src="img/chevron-up.svg" alt="">
         </div>
+
     </div>
     <script>
         window.addEventListener("DOMContentLoaded", () => {
