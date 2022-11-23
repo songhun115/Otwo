@@ -227,10 +227,7 @@ body.over{overflow: hidden;}
     .platform-category{padding-bottom: 50px;}
     .service-platform-list{padding-top:100px ;}
     .platform-item:hover{background-color: #101010;}
-    .service-platform-list .platform-item:hover .platform-data{bottom: -20% !important;}
-    .service-platform-item:hover .platform-category {
-      margin: 10px 0 30px 0;
-  }
+    .service-platform-list .platform-item:hover .platform-data{bottom: 20% !important;}
     .platform-item:hover .yes-hover{display: none;}
     .yes-hover{display: none;}
     .platform-item:hover .none-hover{display: block;}
