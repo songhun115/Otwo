@@ -229,9 +229,9 @@ body.over{overflow: hidden;}
     .platform-item:hover{background-color: #101010;}
     .service-platform-list .platform-item:hover .platform-data{bottom: -20% !important;}
     .service-platform-item:hover .platform-category {margin: 10px 0 30px 0;}
-    .platform-item:hover .yes-hover{display: none;}
+    .platform-item .yes-hover{display: none;}
     .yes-hover{display: none;}
-    .platform-item:hover .none-hover{display: block;}
+    .none-hover{display: block;}
     /*!어바웃 */
     .our-values-list{flex-direction: column; }
     .our-values-item{margin:15px 0;}
@@ -256,7 +256,6 @@ body.over{overflow: hidden;}
    /*!쇼핑몰 */
    .shoping-mall-img{flex-direction: column;}
    .card::after {filter: blur(calc(var(--card-height) / 4));}
-   .sub-content-box h3{font-size: 24px;}
     /*!스플레시  */
     #splash-logo{ width: 30%; position: absolute; }
 /*!서브  */

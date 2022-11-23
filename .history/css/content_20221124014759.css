@@ -256,7 +256,6 @@ body.over{overflow: hidden;}
    /*!쇼핑몰 */
    .shoping-mall-img{flex-direction: column;}
    .card::after {filter: blur(calc(var(--card-height) / 4));}
-   .sub-content-box h3{font-size: 24px;}
     /*!스플레시  */
     #splash-logo{ width: 30%; position: absolute; }
 /*!서브  */
