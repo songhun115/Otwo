@@ -81,8 +81,8 @@
             renderer.setSize(window.innerWidth, window.innerHeight)
             document.body.appendChild(renderer.domElement)
 
-            // document.body.style.touchAction = 'none'
-            document.body.addEventListener('pointermove', onPointerMove)
+            document.body.style.touchAction = 'none'
+            
             window.addEventListener('resize', onWindowResize)
         }
 

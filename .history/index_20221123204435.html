@@ -32,8 +32,8 @@
 </style>
 <body>
     <div class="curser-bg"></div>.
-    <script src="js/three.js"></script>
-    <div style-="z-index:-111111;" class="animation"></div>
+    <script style-="z-index : -111111;" src="js/three.js"></script>
+    <div class="animation"></div>
     <script>
         let camera
         let scene
@@ -81,7 +81,7 @@
             renderer.setSize(window.innerWidth, window.innerHeight)
             document.body.appendChild(renderer.domElement)
 
-            // document.body.style.touchAction = 'none'
+            document.body.style.touchAction = 'none'
             document.body.addEventListener('pointermove', onPointerMove)
             window.addEventListener('resize', onWindowResize)
         }
