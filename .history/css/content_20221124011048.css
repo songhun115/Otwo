@@ -224,7 +224,7 @@ body.over{overflow: hidden;}
     .platform-list{display: none;}
     .mb-service-platform-list{display: block;}
     .platform-hide-con{display: none;}
-    .platform-category{padding-bottom: 50px;}
+    /* .platform-category{padding-bottom: 50px;} */
     .service-platform-list{padding-top:100px ;}
     .platform-item:hover{background-color: #101010;}
     .platform-item:hover .platform-data{bottom: 20%;}

@@ -230,7 +230,7 @@ body.over{overflow: hidden;}
     .platform-item:hover .platform-data{bottom: 20%;}
     .platform-item:hover .yes-hover{display: none;}
     .yes-hover{display: none;}
-    .platform-item:hover .none-hover{display: block;}
+    .platform-item:hover .none-hover
     /*!어바웃 */
     .our-values-list{flex-direction: column; }
     .our-values-item{margin:15px 0;}
