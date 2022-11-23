@@ -192,6 +192,7 @@ body.over{overflow: hidden;}
 
   @media(max-width:1000px){
     .platform-list{gap: 30px; grid-template-columns: repeat(3,1fr);}
+    
   }
   @media(max-width:765px){
     .mb-nav-box{display: block;}
@@ -224,7 +225,6 @@ body.over{overflow: hidden;}
     .platform-hide-con{display: none;}
     .platform-category{padding-bottom: 50px;}
     .service-platform-list{padding-top:100px ;}
-    .platform-item:hover{background-color: #101010;}
     /*!어바웃 */
     .our-values-list{flex-direction: column; }
     .our-values-item{margin:15px 0;}

@@ -192,6 +192,7 @@ body.over{overflow: hidden;}
 
   @media(max-width:1000px){
     .platform-list{gap: 30px; grid-template-columns: repeat(3,1fr);}
+    
   }
   @media(max-width:765px){
     .mb-nav-box{display: block;}
