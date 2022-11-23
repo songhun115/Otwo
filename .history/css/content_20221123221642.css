@@ -117,7 +117,7 @@ body.over{overflow: hidden;}
   .member-slide .member-tit{text-align: left;}
   .mb-member-slider{display: none; border-radius: 20px 20px 0 0;}
   .mb-member-slider .swiper-container {max-width: 765px;width: 100%;}
-  .mb-member-slider .swiper-slide-active {z-index: 2;filter: blur(0) !important; opacity: 1 !important; }
+  .mb-member-slider .swiper-slide-active {z-index: 2;filter: blur(0) !important; opacity: 1;}
   .mb-member-slider .swiper-slide {filter: blur(5px); opacity: 0.5;}
   .mb-member-slider .swiper-slide-next,
   .mb-member-slider .swiper-slide-prev {z-index: 1;}

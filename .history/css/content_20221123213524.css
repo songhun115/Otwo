@@ -22,11 +22,11 @@ body.over{overflow: hidden;}
 .trigger span:nth-child(1){top: 0; }
 .trigger span:nth-child(2){top: 50%; }
 .trigger span:nth-child(3){top: 100%;}
-.mb-nav-box{width: 100%; position: absolute; top:-100%; left: 50%; transform: translateX(-50%); background-color:#7D0DB2; transition: 0.3s;  border-radius: 0 0 20px 20px; z-index: 11111;}
-.mb-nav-box.show{top: 0; height: 70%;}
+.mb-nav-box{width: 100%; position: absolute; top:-100%; left: 50%; transform: translateX(-50%); background-color:#7D0DB2; transition: 0.3s;  border-radius: 0 0 20px 20px; z-index: 1;}
+.mb-nav-box.show{top: 0; height: 50%;}
 .mb-nav-box .nav-list{flex-direction: column; align-items: flex-start; }
 .mb-nav-box .nav-item{font-size: 18px; margin:30px 0}
-.menu-bg{position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.6); display: none; z-index: 1111;}
+.menu-bg{position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.6); display: none;}
 .menu-bg.show{display: block;}
 .menu-close{text-align: right;    padding: 40px 20px 20px 20px; cursor: pointer;}
 /*!메인페이지   */
@@ -46,9 +46,9 @@ body.over{overflow: hidden;}
 .service{padding: 320px 20px 0 20px;}
 .service-content{display: flex; justify-content: space-between; align-items: center;}
 .service-left.service-right{width: 50%;}
-.service-left h2{font-size: 24px;}
+.service-left h2{font-size: 28px;}
 .service-left > p,.business-box-left p{padding-top: 40px; font-size: 16px;}
-.business-box-left > h2 {font-size: 24px;}
+.business-box-left > h2 {font-size: 28px;}
 .service-category-box{display: flex; flex-direction: column; justify-content: start; align-items: flex-start; text-align: left; padding-right: 40px; box-sizing: border-box;}
 .service-category-box > h4 {font-size: 20px; line-height: 29px; font-weight: 400; margin:40px 0 20px 0;}
 .service-category-box > p {font-size: 16px;}
@@ -96,12 +96,11 @@ body.over{overflow: hidden;}
   .our-values-category {margin:20px 0 32px 0; font-size: 24px; font-weight: 600;}
 
   .advisor{padding-top: 480px;}
-  
+  .advisor > h2{margin: 80px 0 120px 0;}
   .member-info {padding:40px 40px 60px 40px; box-sizing: border-box;} 
   .advisor-member-list{    display: grid;grid-template-columns: repeat(3,1fr);gap: 40px; position: relative;}
   .advisor-member-item{background: #252525; border-radius: 20px;  cursor: pointer;}
   .mb-member-slider .advisor-member-item{border:20px 20px 0 0;}
-  .mb-member-slider .member-swiper{border-radius: 20px 20px 0 0;}
   .mb-member-slider .swiper-slide-active .advisor-member-item{border:1px solid #fff;}
   .member-name{font-size: 20px; font-weight: 700;}
   .member-info > div{display: flex; align-items: center; justify-content: space-between; margin-top: 5px;}
@@ -110,19 +109,18 @@ body.over{overflow: hidden;}
   .advisor-member-item-more{display: none;}
   .advisor-member-item-more.show{display: block;}
   .member-photo img {border-radius: 20px 20px 0 0 ; }
-
+.member-swiper{overflow:visible !important}
 .member-wrapper{display: flex; align-items: center;}
   .member-slide{display: flex; flex-direction: column;}
   .member-slide .member-info{width: 100%; background: #252525;}
   .member-slide .member-tit{text-align: left;}
   .mb-member-slider{display: none; border-radius: 20px 20px 0 0;}
   .mb-member-slider .swiper-container {max-width: 765px;width: 100%;}
-  .mb-member-slider .swiper-slide-active {z-index: 2;filter: blur(0) !important; opacity: 1 !important; }
-  .mb-member-slider .swiper-slide {filter: blur(5px); opacity: 0.5;}
+  .mb-member-slider .swiper-slide-active {z-index: 2;filter: blur(0) !important;}
+  .mb-member-slider .swiper-slide {filter: blur(5px);}
   .mb-member-slider .swiper-slide-next,
   .mb-member-slider .swiper-slide-prev {z-index: 1;}
   /*!서비스  */
-  
   .service-platform-list{padding-top: 170px; box-sizing: border-box;}
   .platform-list{ display: grid;grid-template-columns: repeat(4,1fr);gap: 40px}
   .platform-item{ background: #101010;  border-radius: 20px; padding:20px; box-sizing: border-box; cursor: pointer; transition: 0.3s;}
@@ -150,10 +148,7 @@ body.over{overflow: hidden;}
   
   .platform-hide-con{padding:0  10px; font-size: 12px;}
 .platform-item:hover .platform-hide-con{padding: 10px;}
-.mb-service-platform-list{display: none; padding: 0 20px;}
-.swiper-slide .service-platform-item-slide{ width:100%}
-.mb-service-platform-list .mySwiper {padding-bottom: 50px;}
-.mb-service-platform-list .swiper-button-prev, .mb-service-platform-list  .swiper-button-next{top: 90% !important;}
+
   /*!모달  */
   .advisor-modal{width: 70%; display: none; position: fixed; left: 50%; top: 50%; transform: translate(-50%,-50%);  background-color: #2F2F2F;  z-index: 1; padding: 40px 60px; max-width: 750px; box-sizing: border-box;}
   .advisor-modal.show{display: block;}
@@ -220,18 +215,12 @@ body.over{overflow: hidden;}
     .platform-category{font-size: 24px;}
     .platform-item{padding: 15px;}
     .platform-category{font-size: 16px;}
-    .platform-list{display: none;}
-    .mb-service-platform-list{display: block;}
-    .platform-hide-con{display: none;}
-    .platform-category{padding-bottom: 50px;}
-    .service-platform-list{padding-top:100px ;}
     /*!어바웃 */
     .our-values-list{flex-direction: column; }
     .our-values-item{margin:15px 0;}
     .advisor-member{display:none}
     .advisor-member-list{grid-template-columns: repeat(1,1fr);gap: 40px}
-    .advisor > h2{  font-size: 24px;  margin: 40px 0 60px 0;}
-    .advisor > h2 > br{display: none;}
+    .advisor > h2{    margin: 40px 0 60px 0;}
     .mb-member-slider{display: block;}
     /*!푸터  */
     .footer{flex-direction: column; padding: 20px;}
@@ -243,7 +232,7 @@ body.over{overflow: hidden;}
     .advisor-modal-box{flex-direction: column; }
     .advisor-modal-con{margin-left: 0; margin-top: 20px;}
     .advisor-modal-con h5{margin:15px 0;}
-    .overview{padding-top: 60px;}
+    .overview{padding-top: 160px;}
     .advisor-modal{width: 90%;}
     .modal-close{top: 20px; right: 20px;}
    /*!쇼핑몰 */
@@ -274,4 +263,7 @@ body.over{overflow: hidden;}
   nav{width: calc(110%);}
 
   
-  
+
+  .promotion {
+    
+}
