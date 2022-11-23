@@ -13,7 +13,7 @@ body.over{overflow: hidden;}
 .nav-item{padding:0 30px; font-weight: 700;font-size: 14px;line-height: 20px; cursor: pointer; white-space: nowrap;}
 /*!햄버거메뉴 */
 .mb-header{display: none; justify-content: space-between; position: relative; padding: 20px;}
-.mb-nav-box{display: none;}
+.mb-header{}
 .trigger{position: relative; display: none; height: 20px; width: 30px; cursor: pointer;}
 /* .trigger.on span:nth-child(1){top: 50%; transform: rotate(45deg);}
 .trigger.on span:nth-child(2){opacity: 0; }
@@ -195,7 +195,7 @@ body.over{overflow: hidden;}
     
   }
   @media(max-width:765px){
-    .mb-nav-box{display: block;}
+    
     .platform-list{padding: 0;}
     .section h1 {font-size: 32px; line-height: 40px;}
     .overview,.our-values,.advisor{padding: 240px 20px 0 20px;}
