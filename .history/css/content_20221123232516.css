@@ -226,7 +226,7 @@ body.over{overflow: hidden;}
     .platform-category{padding-bottom: 50px;}
     .service-platform-list{padding-top:100px ;}
     .platform-item:hover{background-color: #101010;}
-    .platform-item: .platform-data {bottom: 20%;}
+    .platform-item:hover .platform-data {bottom: 20%;}
     /*!어바웃 */
     .our-values-list{flex-direction: column; }
     .our-values-item{margin:15px 0;}
