@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/content.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+        integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="js/index.js"></script>
+    <script src="js/three.js"></script>
+    <script src="js/three.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.min.js"></script>
+  <title>Document</title>
+</head>
+<style>
+  .swiper-container {max-width: 765px; width: 100%;} 
+
+
+nav{margin-top:300px;}
+.swiper-slide-active{ z-index:2; filter: blur(0) !important;}
+.swiper-slide{filter: blur(5px);}
+.swiper-slide-next,.swiper-slide-prev{z-index: 1;}
+ .swiper-slide-active{}
+</style>
+<body>
+  <nav></nav>
+<!-- Slider main container -->
+<div class="swiper-container">
+    <!-- Additional required wrapper -->
+    <div class="swiper-wrapper">
+        <!-- Slides -->
+        <div class="swiper-slide">
+          <div class="advisor-member-item advisor-member-modal advisor-member-modal01">
+            <div class="member-photo">
+                <img src="img/member01.png" alt="">
+            </div>
+            <div class="member-info">
+                <span class="member-tit">Advisor</span>
+                <div>
+                    <span class="member-name">한채은</span>
+                    <span><img src="img/chevron-right.svg" alt=""></span>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="advisor-member-item advisor-member-modal advisor-member-modal01">
+            <div class="member-photo">
+                <img src="img/member01.png" alt="">
+            </div>
+            <div class="member-info">
+                <span class="member-tit">Advisor</span>
+                <div>
+                    <span class="member-name">한채은</span>
+                    <span><img src="img/chevron-right.svg" alt=""></span>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="advisor-member-item advisor-member-modal advisor-member-modal01">
+            <div class="member-photo">
+                <img src="img/member01.png" alt="">
+            </div>
+            <div class="member-info">
+                <span class="member-tit">Advisor</span>
+                <div>
+                    <span class="member-name">한채은</span>
+                    <span><img src="img/chevron-right.svg" alt=""></span>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="advisor-member-item advisor-member-modal advisor-member-modal01">
+            <div class="member-photo">
+                <img src="img/member01.png" alt="">
+            </div>
+            <div class="member-info">
+                <span class="member-tit">Advisor</span>
+                <div>
+                    <span class="member-name">한채은</span>
+                    <span><img src="img/chevron-right.svg" alt=""></span>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="advisor-member-item advisor-member-modal advisor-member-modal01">
+            <div class="member-photo">
+                <img src="img/member01.png" alt="">
+            </div>
+            <div class="member-info">
+                <span class="member-tit">Advisor</span>
+                <div>
+                    <span class="member-name">한채은</span>
+                    <span><img src="img/chevron-right.svg" alt=""></span>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="advisor-member-item advisor-member-modal advisor-member-modal01">
+            <div class="member-photo">
+                <img src="img/member01.png" alt="">
+            </div>
+            <div class="member-info">
+                <span class="member-tit">Advisor</span>
+                <div>
+                    <span class="member-name">한채은</span>
+                    <span><img src="img/chevron-right.svg" alt=""></span>
+                </div>
+            </div>
+        </div>
+        </div>
+        ...
+    </div>
+    
+    
+    <script>
+           
+  var mySwiper = new Swiper ('.swiper-container', {
+    speed: 400,
+    
+    initialSlide: 0,
+    //truewrapper adoptsheight of active slide
+    autoHeight: false,
+    // Optional parameters
+    direction: 'horizontal',
+    loop: true,
+    // delay between transitions in ms
+    autoplay: 5000,
+    autoplayStopOnLast: false, // loop false also
+    // If we need pagination
+    pagination: '.swiper-pagination',
+    paginationType: "bullets",
+    
+    // Navigation arrows
+    nextButton: '.swiper-button-next',
+    prevButton: '.swiper-button-prev',
+    
+    // And if we need scrollbar
+    //scrollbar: '.swiper-scrollbar',
+    // "slide", "fade", "cube", "coverflow" or "flip"
+    effect: 'slide',
+    // Distance between slides in px.
+    spaceBetween: -300,
+    //
+    slidesPerView: 2,
+    //
+    centeredSlides: true,
+    //
+    slidesOffsetBefore: 0,
+    //
+    grabCursor: true,
+  })        
+
+    </script>
+    <!-- If we need scrollbar -->
+<!--     <div class="swiper-scrollbar"></div> -->
+</div>
+</body>
+</html>

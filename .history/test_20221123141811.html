@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.min.js"></script>
+  <title>Document</title>
+</head>
+<style>
+  .swiper-container {
+    width: 800px;
+    height: 200px;
+ 
+} 
+
+.swiper-slide {
+   background-color: purple;
+
+}
+
+.blue {
+  background-color: blue;
+}
+
+.red {
+  background-color: red;
+}
+nav{margin-top:300px;}
+.swiper-slide-active{ z-index:1; filter: blur(0) !important;}
+.swiper-slide{filter: blur(10px);}
+ 
+</style>
+<body>
+  <nav></nav>
+<!-- Slider main container -->
+<div class="swiper-container">
+    <!-- Additional required wrapper -->
+    <div class="swiper-wrapper">
+        <!-- Slides -->
+        <div class="swiper-slide">Slide 1</div>
+        <div class="swiper-slide blue ">Slide 2</div>
+        <div class="swiper-slide red">Slide 3</div>
+        <div class="swiper-slide">Slide 1</div>
+        <div class="swiper-slide blue ">Slide 2</div>
+        <div class="swiper-slide red">Slide 3</div>
+        <div class="swiper-slide">Slide 1</div>
+        <div class="swiper-slide blue ">Slide 2</div>
+        <div class="swiper-slide red">Slide 3</div>
+        <div class="swiper-slide">Slide 1</div>
+        <div class="swiper-slide blue ">Slide 2</div>
+        <div class="swiper-slide red">Slide 3</div>
+        ...
+    </div>
+    <!-- If we need pagination -->
+    <div class="swiper-pagination"></div>
+    
+    <!-- If we need navigation buttons -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+    
+    <script>
+           
+  var mySwiper = new Swiper ('.swiper-container', {
+    speed: 400,
+    spaceBetween: 100,
+    initialSlide: 0,
+    //truewrapper adoptsheight of active slide
+    autoHeight: false,
+    // Optional parameters
+    direction: 'horizontal',
+    loop: true,
+    // delay between transitions in ms
+    autoplay: 5000,
+    autoplayStopOnLast: false, // loop false also
+    // If we need pagination
+    pagination: '.swiper-pagination',
+    paginationType: "bullets",
+    
+    // Navigation arrows
+    nextButton: '.swiper-button-next',
+    prevButton: '.swiper-button-prev',
+    
+    // And if we need scrollbar
+    //scrollbar: '.swiper-scrollbar',
+    // "slide", "fade", "cube", "coverflow" or "flip"
+    effect: 'slide',
+    // Distance between slides in px.
+    spaceBetween: -100,
+    //
+    slidesPerView: 2,
+    //
+    centeredSlides: true,
+    //
+    slidesOffsetBefore: 0,
+    //
+    grabCursor: true,
+  })        
+
+    </script>
+    <!-- If we need scrollbar -->
+<!--     <div class="swiper-scrollbar"></div> -->
+</div>
+</body>
+</html>
