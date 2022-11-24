@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/content.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+        integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="js/index.js"></script>
+    <script src="js/three.js"></script>
+    <script src="js/three.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.min.js"></script>
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <title>OTWO CHAIN | 오투체인</title>
+</head>
+<style>
+    #canvas{width: 100% !important; max-height: 300px !important;}
+    #canvas canvas{width: 100% !important;  max-height: 100%;}
+    @media(max-width:765px){
+    #canvas{width: 100% !important; max-height: 300px !important;}
+    #canvas canvas{width: 100% !important;  max-height: 100%}
+    }
+    
+ 
+
+</style>
+
+<body>
+    <div class="contaeiner">
+        <header class="header" id="header"></header>
+        <nav class="mb-header">
+            <div class="mb-logo">
+                <a href="index.html">
+                    <img src="img/logo-white.svg" alt="">
+                </a>
+            </div>
+            <div class="trigger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+        <div id="mb-header"></div>
+        <div class="menu-bg"></div>
+        <section class="section overview">
+            <h3>OVERVIEW</h3>
+            <h1>O2 PLATFORM B2B2C</h1>
+            <p>“오투 플랫폼”으로 B2B2C 개념의 APP에서 상호 모든 회사의 플랫폼들과 연동하여 어떠한 환경에서도 “고객이 원하는 모든걸 한군데서” 찾을 수 있는 다양한 분야 카테고리의 통합 조회(코인결제) 플랫폼 생태계입니다.</p>
+
+        </section>
+        <script>
+            var container = 'body';
+            var size = {
+                x: $(container).width(),
+                y: $(container).height() / 2
+            };
+
+            var canvas = $('<canvas/>').attr({ width: size.x, height: size.y }).appendTo(container),
+                context = canvas.get(0).getContext("2d");
+            canvas.addClass('canvas-one')
+            canvas.wrap('<div></div>');
+            canvas.parent().addClass('canvas-one-wrap')
+
+            var waveFrequency = 20;
+
+            var voidWidth = 100;
+            var starEscapeWidth = 255;
+
+            var starCount = 25000;
+
+            var startTime = new Date().getTime();
+            var currentTime = 0;
+
+            var imagedata = context.createImageData(size.x, size.y);
+            var buf = new ArrayBuffer(imagedata.data.length);
+            var buf8 = new Uint8ClampedArray(buf);
+            var data = new Uint32Array(imagedata.data.buffer);
+
+            function updateData() {
+                imagedata = context.getImageData(0, 0, size.x, size.y);
+                data = new Uint32Array(imagedata.data.buffer);
+            }
+
+            function setSize() {
+                size = {
+                    x: $(container).width(),
+                    y: $(container).height()
+                };
+                canvas.attr({ width: size.x, height: size.y });
+            }
+
+            function rotate(cx, cy, x, y, radians) {
+                var cos = Math.cos(radians),
+                    sin = Math.sin(radians),
+                    nx = (cos * (x - cx)) + (sin * (y - cy)) + cx,
+                    ny = (cos * (y - cy)) - (sin * (x - cx)) + cy;
+                return { x: nx, y: ny };
+            }
+
+            var stars = [];
+            var star = function () {
+                var rands = [];
+                rands.push(Math.random() * (starEscapeWidth / 2) + 1);
+                rands.push(Math.random() * (starEscapeWidth / 2) + starEscapeWidth);
+
+                this.orbital = (rands.reduce(function (p, c) {
+                    return p + c;
+                }, 0) / rands.length);
+
+                this.opacity = Math.floor((1 - ((this.orbital) / starEscapeWidth)) * starEscapeWidth) + Math.floor(Math.random() * 80);
+
+                this.position = {
+                    x: (size.x / 2),
+                    y: (size.y / 2) + this.orbital
+                };
+                this.originPosition = this.position;
+
+                this.rotation = Math.PI * (Math.random() * 2);
+                this.position = rotate(size.x / 2, size.y / 2, this.position.x, this.position.y, this.rotation);
+                this.realPosition = this.position;
+                this.rSpeed = (Math.random() * 0.0005 + (this.opacity / 20000));
+                this.waveSpeed1 = Math.random() * 0.01;
+                this.waveSpeed2 = Math.random() * 0.01;
+                this.wave1 = Math.sin(currentTime * this.waveSpeed1) * waveFrequency;
+                this.wave2 = Math.sin(currentTime * this.waveSpeed2) * waveFrequency;
+
+                this.id = stars.length;
+                stars.push(this);
+            }
+
+            function drawStar(star) {
+                data[Math.floor(star.realPosition.y + star.wave1) * size.x + Math.floor(star.realPosition.x + star.wave2)] =
+                    (0 << 24) |	// alpha
+                    (255 << 16) |	// blue
+                    (255 << 8) |	// green
+                    255;		// red
+                star.wave1 = Math.sin(currentTime * star.waveSpeed1) * waveFrequency;
+                star.wave2 = Math.sin(currentTime * star.waveSpeed2) * waveFrequency;
+                star.realPosition = rotate(size.x / 2, size.y / 2, star.position.x, star.position.y, star.rSpeed * currentTime);
+                star.opacity = Math.floor((1 - ((star.orbital) / starEscapeWidth)) * starEscapeWidth) + Math.floor(Math.random() * 80);
+                data[Math.floor(star.realPosition.y + star.wave1) * size.x + Math.floor(star.realPosition.x + star.wave2)] =
+                    (star.opacity << 24) |	// alpha
+                    (255 << 16) |	// blue
+                    (255 << 8) |	// green
+                    255;		// red
+            }
+
+            window.requestFrame = (function () {
+                return window.requestAnimationFrame ||
+                    window.webkitRequestAnimationFrame ||
+                    window.mozRequestAnimationFrame ||
+                    function (callback) {
+                        window.setTimeout(callback, 1000 / 60);
+                    };
+            })();
+
+            function render() {
+                var now = new Date().getTime();
+                currentTime = (now - startTime) / 10;
+
+                if (starCount >= stars.length) {
+                    for (var i = 0; i < 100; i++) {
+                        new star();
+                    }
+                }
+
+                for (var i = 0; i <= stars.length; i++) {
+                    if (stars[i]) {
+                        drawStar(stars[i]);
+                    }
+                }
+
+                context.putImageData(imagedata, 0, 0); // Push the pixel data to the canvas
+
+                requestFrame(render);
+            }
+            render();
+
+            $('#display').on('resize', setSize);
+        </script>
+
+    </div>
+
+
+    <div class="contaeiner-two">
+        <section class="section our-values">
+            <h3>OVERVIEW</h3>
+            <h1>WE HAVE THREE SIMPLE PRINCIPLES <br /> THAT WE STRIVE FOR IN OUR TEAM.</h1>
+            <p>오투 플랫폼은 현재(2022 기준) 오투컴퍼니가 운영하면서 관계성을 가진 모든 기업과 상호 모든 비즈니스를 연동하여 수익 창출을 하고 있는
+                주 거래처 들이며 이를 하나의 플랫폼으로 만드는걸 준비중인 상황에서 가칭 “오투 플랫폼”으로 B2B2C 개념의 APP에서 상호 모든 회사의 플랫폼들과 연동하여 어떠한 환경에서도 “고객이
+                원하는
+                모든걸 한군데서” 찾을 수 있는 다양한 분야 카테고리의 통합 조회(코인결제) 플랫폼 생태계입니다.</p>
+            <ul class="our-values-list">
+                <li class="our-values-item">
+                    <div class="our-values-ico">
+                        <img src="img/globe.svg" alt="">
+                    </div>
+                    <h4 class="our-values-category">Vision 1 text</h4>
+                    <p>Blockchain is more than a technology. We’re building the infrastructure for decentralized
+                        economy.</p>
+                </li>
+                <li class="our-values-item">
+                    <div class="our-values-ico">
+                        <img src="img/diagram-previous-alt.svg" alt="">
+                    </div>
+                    <h4 class="our-values-category">Vision 2 text</h4>
+                    <p>Blockchain is more than a technology. We’re building the infrastructure for decentralized
+                        economy.</p>
+                </li>
+                <li class="our-values-item">
+                    <div class="our-values-ico">
+                        <img src="img/bitcoin-circle.svg" alt="">
+                    </div>
+                    <h4 class="our-values-category">Vision 3 text</h4>
+                    <p>Blockchain is more than a technology. We’re building the infrastructure for decentralized
+                        economy.</p>
+                </li>
+            </ul>
+        </section>
+        <section class="section advisor">
+            <h3>TEAM</h3>
+            <h2>O2 PLATFORM <br /> ADVISOR</h2>
+            <div class="advisor-member">
+                <ul class="advisor-member-list">
+                    
+                    <li class="advisor-member-item  advisor-member-modal advisor-member-modal01">
+                        <div class="member-photo">
+                            <img src="img/member12.png" alt="">
+                        </div>
+                        <div class="member-info">
+                            <span class="member-tit">CEO</span>
+                            <div>
+                                <span class="member-name">박찬문</span>
+                                <span><img src="img/chevron-right.svg" alt=""></span>
+                            </div>
+                        </div>
+                        <div class="advisor-modal">
+                            <div class="advisor-modal-box">
+                                <div class="modal-close">
+                                    <img src="img/close.svg" alt="">
+                                </div>
+                                <div class="advisor-modal-img">
+                                    <img src="img/member-con.png" alt="">
+                                </div>
+                                <div class="advisor-modal-con">
+                                    <h4>CEO</h4>
+                                    <h5>박찬문</h5>
+                                    <p>CFA, CAIA, Liam is one of the largest individual and corporate traders of
+                                        Cryptocurrencies in Europe and the Middle East. A certified investment manager
+                                        in the UK, he established one of the world’s first regulated Cryptocurrency
+                                        Hedge Funds in 2016. As founder and CEO of Alphabit Limited, Liam now advises a
+                                        number of funds, family offices and ground-breaking Blockchain enterprises.</p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </li>
+                    <li class="advisor-member-item advisor-member-modal advisor-member-modal02">
+                        <div class="member-photo">
+                            <img src="img/member01.png" alt="">
+                        </div>
+                        <div class="member-info">
+                            <span class="member-tit">CFO</span>
+                            <div>
+                                <span class="member-name">한채은</span>
+                                <span><img src="img/chevron-right.svg" alt=""></span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="advisor-member-item  advisor-member-modal advisor-member-modal03">
+                        <div class="member-photo">
+                            <img src="img/member11.png" alt="">
+                        </div>
+                        <div class="member-info">
+                            <span class="member-tit">CSO</span>
+                            <div>
+                                <span class="member-name">장준호</span>
+                                <span><img src="img/chevron-right.svg" alt=""></span>
+                            </div>
+                        </div>
+                        <div class="advisor-modal">
+                            <div class="advisor-modal-box">
+                                <div class="modal-close">
+                                    <img src="img/close.svg" alt="">
+                                </div>
+                                <div class="advisor-modal-img">
+                                    <img src="img/member-con.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                   
+                    <li class="advisor-member-item advisor-member-modal advisor-member-modal04">
+                        <div class="member-photo">
+                            <img src="img/member04.png" alt="">
+                        </div>
+                        <div class="member-info">
+                            <span class="member-tit">Member</span>
+                            <div>
+                                <span class="member-name">서에스더</span>
+                                <span><img src="img/chevron-right.svg" alt=""></span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="advisor-member-item advisor-member-modal advisor-member-modal05">
+                        <div class="member-photo">
+                            <img src="img/member05.png" alt="">
+                        </div>
+                        <div class="member-info">
+                            <span class="member-tit">Member</span>
+                            <div>
+                                <span class="member-name">박창석</span>
+                                <span><img src="img/chevron-right.svg" alt=""></span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="advisor-member-item advisor-member-modal advisor-member-modal06">
+                        <div class="member-photo">
+                            <img src="img/member06.png" alt="">
+                        </div>
+                        <div class="member-info">
+                            <span class="member-tit">Member</span>
+                            <div>
+                                <span class="member-name">김진영</span>
+                                <span><img src="img/chevron-right.svg" alt=""></span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="advisor-member-item advisor-member-item-more advisor-member-modal advisor-member-modal07">
+                        <div class="member-photo">
+                            <img src="img/member07.png" alt="">
+                        </div>
+                        <div class="member-info">
+                            <span class="member-tit">Member</span>
+                            <div>
+                                <span class="member-name">송준형</span>
+                                <span><img src="img/chevron-right.svg" alt=""></span>
+                            </div>
+                        </div>
+                        <div class="advisor-modal">
+                            <div class="advisor-modal-box">
+                                <div class="modal-close">
+                                    <img src="img/close.svg" alt="">
+                                </div>
+                                <div class="advisor-modal-img">
+                                    <img src="img/member-con.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="advisor-member-item advisor-member-item-more advisor-member-modal advisor-member-modal08">
+                        <div class="member-photo">
+                            <img src="img/member08.png" alt="">
+                        </div>
+                        <div class="member-info">
+                            <span class="member-tit">Member</span>
+                            <div>
+                                <span class="member-name">김수일</span>
+                                <span><img src="img/chevron-right.svg" alt=""></span>
+                            </div>
+                        </div>
+                        <div class="advisor-modal">
+                            <div class="advisor-modal-box">
+                                <div class="modal-close">
+                                    <img src="img/close.svg" alt="">
+                                </div>
+                                <div class="advisor-modal-img">
+                                    <img src="img/member-con.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="advisor-member-item advisor-member-item-more advisor-member-modal advisor-member-modal09">
+                        <div class="member-photo">
+                            <img src="img/member09.png" alt="">
+                        </div>
+                        <div class="member-info">
+                            <span class="member-tit">Member</span>
+                            <div>
+                                <span class="member-name">오 다니엘</span>
+                                <span><img src="img/chevron-right.svg" alt=""></span>
+                            </div>
+                        </div>
+                        <div class="advisor-modal">
+                            <div class="advisor-modal-box">
+                                <div class="modal-close">
+                                    <img src="img/close.svg" alt="">
+                                </div>
+                                <div class="advisor-modal-img">
+                                    <img src="img/member-con.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="advisor-member-item advisor-member-item-more advisor-member-modal advisor-member-modal10">
+                        <div class="member-photo">
+                            <img src="img/member10.png" alt="">
+                        </div>
+                        <div class="member-info">
+                            <span class="member-tit">Member</span>
+                            <div>
+                                <span class="member-name">박찬균</span>
+                                <span><img src="img/chevron-right.svg" alt=""></span>
+                            </div>
+                        </div>
+                        <div class="advisor-modal">
+                            <div class="advisor-modal-box">
+                                <div class="modal-close">
+                                    <img src="img/close.svg" alt="">
+                                </div>
+                                <div class="advisor-modal-img">
+                                    <img src="img/member-con.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="advisor-member-item advisor-member-item-more advisor-member-modal advisor-member-modal11">
+                        <div class="member-photo">
+                            <img src="img/member03.png" alt="">
+                        </div>
+                        <div class="member-info">
+                            <span class="member-tit">Member</span>
+                            <div>
+                                <span class="member-name">김민수</span>
+                                <span><img src="img/chevron-right.svg" alt=""></span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="advisor-member-item advisor-member-item-more advisor-member-modal advisor-member-modal12">
+                        <div class="member-photo">
+                            <img src="img/member02.png" alt="">
+                        </div>
+                        <div class="member-info">
+                            <span class="member-tit">Member</span>
+                            <div>
+                                <span class="member-name">에드워드 권(권영민)</span>
+                                <span><img src="img/chevron-right.svg" alt=""></span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="advisor-member-item advisor-member-item-more advisor-member-modal advisor-member-modal13">
+                        <div class="member-photo">
+                            <img src="img/member13.png" alt="">
+                        </div>
+                        <div class="member-info">
+                            <span class="member-tit">Member</span>
+                            <div>
+                                <span class="member-name">이현영</span>
+                                <span><img src="img/chevron-right.svg" alt=""></span>
+                            </div>
+                        </div>
+                    </li>
+                    
+
+                </ul>
+                
+
+
+                <div class="pur-button more-button">
+                    <button>MORE</button>
+                </div>
+            </div>
+           <!--! Slider main container -->
+  <div class="mb-member-slider">
+    <div class="swiper-container member-swiper">
+      <!-- Additional required wrapper -->
+      <div class="swiper-wrapper member-wrapper">
+        <!-- Slides -->
+        <div class="swiper-slide">
+          <div class="advisor-member-item advisor-member-modal advisor-member-modal01">
+            <div class="member-photo">
+              <img src="img/member12.png" alt="">
+            </div>
+            <div class="member-info">
+              <span class="member-tit">CEO</span>
+              <div>
+                <span class="member-name">박찬문</span>
+                <span><img src="img/chevron-right.svg" alt=""></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="advisor-member-item advisor-member-modal advisor-member-modal02">
+            <div class="member-photo">
+              <img src="img/member01.png" alt="">
+            </div>
+            <div class="member-info">
+              <span class="member-tit">CFO</span>
+              <div>
+                <span class="member-name">한채은</span>
+                <span><img src="img/chevron-right.svg" alt=""></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="advisor-member-item advisor-member-modal advisor-member-modal03">
+            <div class="member-photo">
+              <img src="img/member11.png" alt="">
+            </div>
+            <div class="member-info">
+              <span class="member-tit">CSO</span>
+              <div>
+                <span class="member-name">장준호</span>
+                <span><img src="img/chevron-right.svg" alt=""></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="advisor-member-item advisor-member-modal advisor-member-modal04">
+            <div class="member-photo">
+              <img src="img/member04.png" alt="">
+            </div>
+            <div class="member-info">
+              <span class="member-tit">Member</span>
+              <div>
+                <span class="member-name">한채은</span>
+                <span><img src="img/chevron-right.svg" alt=""></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="advisor-member-item advisor-member-modal advisor-member-modal05">
+            <div class="member-photo">
+              <img src="img/member05.png" alt="">
+            </div>
+            <div class="member-info">
+              <span class="member-tit">Member</span>
+              <div>
+                <span class="member-name">박창석</span>
+                <span><img src="img/chevron-right.svg" alt=""></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="advisor-member-item advisor-member-modal advisor-member-modal06">
+            <div class="member-photo">
+              <img src="img/member06.png" alt="">
+            </div>
+            <div class="member-info">
+              <span class="member-tit">Member</span>
+              <div>
+                <span class="member-name">김진영</span>
+                <span><img src="img/chevron-right.svg" alt=""></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+            <div class="advisor-member-item advisor-member-modal advisor-member-modal07">
+              <div class="member-photo">
+                <img src="img/member07.png" alt="">
+              </div>
+              <div class="member-info">
+                <span class="member-tit">Member</span>
+                <div>
+                  <span class="member-name">송준형</span>
+                  <span><img src="img/chevron-right.svg" alt=""></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="advisor-member-item advisor-member-modal advisor-member-modal08">
+              <div class="member-photo">
+                <img src="img/member08.png" alt="">
+              </div>
+              <div class="member-info">
+                <span class="member-tit">Member</span>
+                <div>
+                  <span class="member-name">김수일</span>
+                  <span><img src="img/chevron-right.svg" alt=""></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="advisor-member-item advisor-member-modal advisor-member-modal09">
+              <div class="member-photo">
+                <img src="img/member09.png" alt="">
+              </div>
+              <div class="member-info">
+                <span class="member-tit">Member</span>
+                <div>
+                  <span class="member-name">오다니엘</span>
+                  <span><img src="img/chevron-right.svg" alt=""></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="advisor-member-item advisor-member-modal advisor-member-modal10">
+              <div class="member-photo">
+                <img src="img/member10.png" alt="">
+              </div>
+              <div class="member-info">
+                <span class="member-tit">Member</span>
+                <div>
+                  <span class="member-name">박찬균</span>
+                  <span><img src="img/chevron-right.svg" alt=""></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="advisor-member-item advisor-member-modal advisor-member-modal11">
+              <div class="member-photo">
+                <img src="img/member03.png" alt="">
+              </div>
+              <div class="member-info">
+                <span class="member-tit">Member</span>
+                <div>
+                  <span class="member-name">김민수</span>
+                  <span><img src="img/chevron-right.svg" alt=""></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="advisor-member-item advisor-member-modal advisor-member-modal12">
+              <div class="member-photo">
+                <img src="img/member02.png" alt="">
+              </div>
+              <div class="member-info">
+                <span class="member-tit">Member</span>
+                <div>
+                  <span class="member-name">에드워드 권</span>
+                  <span><img src="img/chevron-right.svg" alt=""></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="advisor-member-item advisor-member-modal advisor-member-modal13">
+              <div class="member-photo">
+                <img src="img/member13.png" alt="">
+              </div>
+              <div class="member-info">
+                <span class="member-tit">Member</span>
+                <div>
+                  <span class="member-name">이현영</span>
+                  <span><img src="img/chevron-right.svg" alt=""></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        ...
+      </div>
+      <script>
+
+        var mySwiper = new Swiper('.swiper-container', {          
+          autoHeight: false,
+          // Optional parameters
+          direction: 'horizontal',
+          loop: true,
+          autoplayStopOnLast: false, // loop false also
+          pagination: '.swiper-pagination',
+          paginationType: "bullets",
+          spaceBetween: -50,
+          slidesPerView: 2,
+          centeredSlides: true,
+          slidesOffsetBefore: 0,
+        })
+
+      </script>
+      <!-- If we need scrollbar -->
+      <!--     <div class="swiper-scrollbar"></div> -->
+    </div>
+  </div>
+  <div  class="advisor-modal advisor-modal01">
+    <div class="advisor-modal-box">
+        <div class="modal-close">
+            <img src="img/close.svg" alt="">
+        </div>
+        <div class="advisor-modal-img">
+            <img src="img/member-detail12.png" alt="">
+        </div>
+        <div class="advisor-modal-con">
+            <div>
+                <h4>CEO</h4>
+            <h5>박찬문</h5>
+            </div>
+            
+            <p>(주)오투컴퍼니 대표이사 2013.02 ~</p>
+        </div>
+    </div>
+</div>
+  <div  class="advisor-modal advisor-modal02">
+    <div class="advisor-modal-box">
+        <div class="modal-close">
+            <img src="img/close.svg" alt="">
+        </div>
+        <div class="advisor-modal-img">
+            <img src="img/member-detail01.png" alt="">
+        </div>
+        <div class="advisor-modal-con">
+            <div>
+                <h4>CFO</h4>
+            <h5>한채은</h5>
+            </div>
+            
+            <p>최고산업전략과정(AIP) 서울대 수료 2015.09 <br>(주)위너스탁 대표이사 2020.10 ~ 2022.10 <br> 나인플러스 대표이사 2021.11 ~</p>
+            
+        </div>
+    </div>
+</div>
+
+<div  class="advisor-modal advisor-modal03">
+    <div class="advisor-modal-box">
+        <div class="modal-close">
+            <img src="img/close.svg" alt="">
+        </div>
+        <div class="advisor-modal-img">
+            <img src="img/member-detail11.png" alt="">
+        </div>
+        <div class="advisor-modal-con">
+            <div>
+                <h4>CSO</h4>
+            <h5>장준호</h5>
+            </div>
+            
+            <p>1991 남관토건/부영건설(CAD)</p>
+            <p>1993 한국통신(SYSTEM)</p>
+            <p>1996 아잉웰컴(WEB MASTER)</p>
+            <p>2002 샵제이/아낙</p>
+            <p>2018 브론즈하우스/엘비</p>
+            <p>2021 빈스힐</p>
+        </div>
+    </div>
+</div>
+
+<div  class="advisor-modal advisor-modal04">
+    <div class="advisor-modal-box">
+        <div class="modal-close">
+            <img src="img/close.svg" alt="">
+        </div>
+        <div class="advisor-modal-img">
+            <img src="img/member-detail04.png" alt="">
+        </div>
+        <div class="advisor-modal-con">
+            <div>
+                <h4>Member</h4>
+            <h5>서에스더</h5>
+            </div>
+            <p>2004 의류 매장운영</p>
+            <p>2015 KBS 6시 내고향 촬영계약 & 강원도가좋다 촬영 계약</p>
+            <P>2021 베네타 틱톡커 계약</P>
+            <P>2022 봄봄엔터테이먼트 운영</P>
+        </div>
+    </div>
+</div>
+<div  class="advisor-modal advisor-modal05">
+    <div class="advisor-modal-box">
+        <div class="modal-close">
+            <img src="img/close.svg" alt="">
+        </div>
+        <div class="advisor-modal-img">
+            <img src="img/member-detail05.png" alt="">
+        </div>
+        <div class="advisor-modal-con">
+            <div>
+                <h4>Member</h4>
+            <h5>박창석</h5>
+            </div>
+            
+            <p>(주)하비아드 대표이사 2008.04 ~ 현재</p>
+        </div>
+    </div>
+</div>
+<div  class="advisor-modal advisor-modal06">
+    <div class="advisor-modal-box">
+        <div class="modal-close">
+            <img src="img/close.svg" alt="">
+        </div>
+        <div class="advisor-modal-img">
+            <img src="img/member-detail06.png" alt="">
+        </div>
+        <div class="advisor-modal-con">
+            <div>
+                <h4>Member</h4>
+            <h5>김진영</h5>
+            </div>
+            
+            <p>아트21 엔터테이먼트 총괄사장</p>
+        </div>
+    </div>
+</div>
+<div  class="advisor-modal advisor-modal07">
+    <div class="advisor-modal-box">
+        <div class="modal-close">
+            <img src="img/close.svg" alt="">
+        </div>
+        <div class="advisor-modal-img">
+            <img src="img/member-detail07.png" alt="">
+        </div>
+        <div class="advisor-modal-con">
+            <div>
+                <h4>Member</h4>
+            <h5>송준형</h5>
+            </div>
+            
+            <p>(주)팬엔터테이먼트 실장 2003 <br>(주)아이에이치큐 이사 2006 ~ <br>(주)탄탄엔터테이먼트 대표이사 2016 ~ 현재</p>
+        </div>
+    </div>
+</div>
+<div  class="advisor-modal advisor-modal08">
+    <div class="advisor-modal-box">
+        <div class="modal-close">
+            <img src="img/close.svg" alt="">
+        </div>
+        <div class="advisor-modal-img">
+            <img src="img/member-detail08.png" alt="">
+        </div>
+        <div class="advisor-modal-con">
+            <div>
+                <h4>Member</h4>
+            <h5>김수일</h5>
+            </div>
+            
+            <p>(주)이네트 & (주)텔트론 창업 이사(본부장) 2000.04 ~ 20002.08 <br> (주)비즈엠텍 대표 2002.08 ~ 2015.08 <br> 사회적기업 (주)컴퍼니나무 부사장 2016.07 ~ 2020.09 <br>(주)컴퍼니나무 & 에버렌트 대표이사 2019.07 ~ 2121.04</p>
+        </div>
+    </div>
+</div>
+<div  class="advisor-modal advisor-modal09">
+    <div class="advisor-modal-box">
+        <div class="modal-close">
+            <img src="img/close.svg" alt="">
+        </div>
+        <div class="advisor-modal-img">
+            <img src="img/member-detail09.png" alt="">
+        </div>
+        <div class="advisor-modal-con">
+            <div>
+                <h4>Member</h4>
+            <h5>오다니엘</h5>
+            </div>
+            
+            <p>QuantumAi CDO</p>
+            <P>TwoHours CDO</P>
+            <P>CodeingSam 강사</P>
+
+        </div>
+    </div>
+</div>
+<div  class="advisor-modal advisor-modal10">
+    <div class="advisor-modal-box">
+        <div class="modal-close">
+            <img src="img/close.svg" alt="">
+        </div>
+        <div class="advisor-modal-img">
+            <img src="img/member-detail10.png" alt="">
+        </div>
+        <div class="advisor-modal-con">
+            <div>
+            <h4>Member</h4>
+            <h5>박찬균</h5>
+        </div>
+            <p>(주)신동방 재경부장 <br> 하이리빙 경영지원 본부장 <br> HLMC 경영지원본부장 <br> 동남산업주식회사 대표이사 현재</p>
+        </div>
+    </div>
+</div>
+<div  class="advisor-modal advisor-modal11">
+    <div class="advisor-modal-box">
+        <div class="modal-close">
+            <img src="img/close.svg" alt="">
+        </div>
+        <div class="advisor-modal-img">
+            <img src="img/member-detail03.png" alt="">
+        </div>
+        <div class="advisor-modal-con">
+            <div>
+                <h4>Member</h4>
+            <h5>김민수</h5>
+            </div>
+            <p>(주)씨앤씨케미칼 대표이사 2013.10 ~ 2018.12 <br>(주)제이투케이플레인 대표이사 2019.01 ~</p>
+        </div>
+    </div>
+</div>
+<div  class="advisor-modal advisor-modal12">
+    <div class="advisor-modal-box">
+        <div class="modal-close">
+            <img src="img/close.svg" alt="">
+        </div>
+        <div class="advisor-modal-img">
+            <img src="img/member-detail02.png" alt="">
+        </div>
+        <div class="advisor-modal-con">
+            <div>
+            <h4>Member</h4>
+            <h5>에드워드 권(권영민)</h5>
+        </div>
+            <p>버즈 알 아랍 호텔 수석총괄주방장 2007 ~ 2009 <br>랩24 오녀셰프 2011.05 ~ <br>엘리멘츠 오녀셰프 </p>
+        </div>
+    </div>
+</div>
+<div  class="advisor-modal advisor-modal13">
+    <div class="advisor-modal-box">
+        <div class="modal-close">
+            <img src="img/close.svg" alt="">
+        </div>
+        <div class="advisor-modal-img">
+            <img src="img/member-detail13.png" alt="">
+        </div>
+        <div class="advisor-modal-con">
+            <div>
+            <h4>Member</h4>
+            <h5>이현영</h5>
+        </div>
+            <p>키키스타 전임강사</p>
+            <p>ICRU연구소 파트너강사</p>
+            <p>퍼스널 블랜딩 연구소 수석연구원</p>
+            <p>MELIRA MONGRI스토어 운영</p>
+            <p>ENI 교육원 파트강사</p>
+            <p>인터비즈시스템 파트너강사</p>
+            <p>LG전자 강사(기획팀)</p>
+            <P>상디컴퍼니 대표</P>
+        </div>
+    </div>
+</div>
+
+        </section>
+    </div>
+    <div id="canvas">
+        <div class="scroll-up ">
+            <p>SCROLL DOWN</p>
+            <img src="img/chevron-up.svg" alt="">
+        </div>
+    </div>
+    <script>
+        window.addEventListener("DOMContentLoaded", () => {
+            const w = window.innerWidth;
+            const h = window.innerHeight / 2;
+            const dpr = window.devicePixelRatio;
+
+            const fov = 60;
+            const fovRad = (fov / 2) * (Math.PI / 180);
+            const dist = h / 2 / Math.tan(fovRad);
+
+            const clock = new THREE.Clock();
+            const particles = 5000;
+            const pointSize = 2.5;
+
+            const renderer = new THREE.WebGLRenderer();
+            renderer.setSize(w, h);
+            renderer.setClearColor(new THREE.Color(0x000000), 1.0);
+            renderer.setPixelRatio(dpr);
+
+            const container = document.getElementById("canvas");
+            container.appendChild(renderer.domElement);
+
+            const camera = new THREE.PerspectiveCamera(fov, w / h, 1, dist * 2);
+            camera.position.x = 0;
+            camera.position.y = 0;
+            camera.position.z = 10;
+
+            const scene = new THREE.Scene();
+
+            const geo = new THREE.BufferGeometry();
+            let positions = [];
+            let x, y, z;
+
+            const width = 400 * (w / h);
+
+            const depth = 400;
+            const distance = 10;
+
+            for (let x = 0; x < width; x += distance) {
+                for (let z = 0; z < depth; z += distance) {
+                    positions.push(-width / 2 + x, -30, -depth / 2 + z);
+                }
+            }
+            let positionAttribute = new THREE.Float32BufferAttribute(positions, 3);
+            geo.addAttribute("position", positionAttribute);
+
+            const mat = new THREE.ShaderMaterial({
+                uniforms: {
+                    u_time: {
+                        value: 0.0
+                    }
+                },
+                vertexShader: `
+              #define M_PI 3.1415926535897932384626433832795
+          
+              precision mediump float;
+              uniform float u_time;
+              void main() {
+                vec3 p = position;
+                p.y += (
+                  cos(p.x / M_PI * 8.0 + u_time * 2.0) +
+                  sin(p.z / M_PI * 8.0 + u_time * 2.0)
+                );
+                gl_PointSize = 1.5;
+                gl_Position = projectionMatrix * modelViewMatrix * vec4(p, 1.0);
+              }
+              `,
+                fragmentShader: `
+              precision mediump float;
+              void main() {
+                gl_FragColor = vec4(1.0, 1.0, 1.0, 1.0);
+              }
+              `
+            });
+
+            const mesh = new THREE.Points(geo, mat);
+            scene.add(mesh);
+
+            render();
+
+            function render() {
+                const time = clock.getElapsedTime();
+                mesh.material.uniforms.u_time.value = time;
+                renderer.render(scene, camera);
+                requestAnimationFrame(render);
+            }
+        });
+    </script>
+    <footer class="footer">
+        <div class="footer-left">
+            <img src="img/footer-left.png" alt="">
+        </div>
+        <div class="footer-right">
+            <p>info@otwocoin.com</p>
+            <p>copyright2022.otwo foundation. all rights reserved.</p>
+        </div>
+    </footer>
+
+    <div class="modal-bg"></div>
+    <script type="text/javascript">
+
+        $(document).ready(function(){
+            $("#header").load("load/header.html");
+            $("#mb-header").load("load/mb-header.html");
+            
+        });
+    
+    </script>
+</body>
+
+</html>

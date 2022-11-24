@@ -266,17 +266,11 @@ body.over{overflow: hidden;}
    .shoping-mall-img{flex-direction: column;}
    .card::after {filter: blur(calc(var(--card-height) / 4));}
    .sub-content-box h3{font-size: 24px;}
-   /*!푸터  */
-   .flower-bg, .flower-bg img{width: 100%;}
-   /*!thtee.js   */
-   #canvas{display: none;}
-
     /*!스플레시  */
     #splash-logo{ width: 30%; position: absolute; }
 /*!서브  */
 .shoping-ico{margin-top: 70px;}
 .shoping-mall-img{padding: 50px 0 30px 0;}
-
     @keyframes hideSplashScreenLogo {
       0%{
         opacity: 1;
@@ -292,12 +286,10 @@ body.over{overflow: hidden;}
           width: calc(0%);
           visibility: hidden;
       }
-    }
-    
+  }
   }
 
   nav{width: calc(110%);}
 
-  
   
   
