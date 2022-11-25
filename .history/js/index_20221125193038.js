@@ -112,22 +112,6 @@ $(document).ready(function () {
         $('.road-map-madal01').addClass('show');
         $('.modal-bg').addClass('show')
     })
-    $('.road-modal02 ').click(function(){
-        $('body').addClass('over');
-        $('.road-map-madal02').addClass('show');
-        $('.modal-bg').addClass('show')
-    })
-    $('.road-modal03 ').click(function(){
-        $('body').addClass('over');
-        $('.road-map-madal03').addClass('show');
-        $('.modal-bg').addClass('show')
-    })
-    $('.road-modal04 ').click(function(){
-        $('body').addClass('over');
-        $('.road-map-madal04').addClass('show');
-        $('.modal-bg').addClass('show')
-    })
-    
     $('.modal-bg').click(function(){
         $('.advisor-modal').removeClass('show');
         $('.road-modal-pup').removeClass('show')
@@ -135,8 +119,8 @@ $(document).ready(function () {
     })
     
     $('.close-img').click(function(){
-        $('.road-modal-pup').removeClass('show');
-        $('.modal-bg').removeClass('show')
+        $('.advisor-modal').removeClass('show');
+        $('.road-modal-pup').removeClass('show')
         $('body').removeClass('over');
     })
    

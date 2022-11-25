@@ -63,7 +63,7 @@ body.over{overflow: hidden;}
 .token-info h5{font-weight: 700; font-size: 20px; line-height: 29px; margin:30px 0;}
 .token-info{padding: 20px; box-sizing: border-box;}
 .token-info{padding-top: 50px;}
-.close-img{ text-align: right; cursor: pointer;}
+
 .road-modal-pup{ display:none;     position: fixed;
   width:70%;
     left: 50%;
@@ -79,9 +79,9 @@ body.over{overflow: hidden;}
       line-height: 23px;
       color: #FFFFFF;
       opacity: 0.6; 
-    margin:10px 20px; text-indent: -10px;}
+    margin:10px 0;}
 .road-modal-pup.show{display: block;}
-.road-modal-pup h3{font-size: 20px; color: #DD8500; font-weight: 700; margin: 20px 0;}
+.road-modal-pup h3{font-size: 20px; color: #DD8500; font-weight: 700; margin: 10px 0;}
 .token > h1{ font-size: 32px; text-align: center;}
 .token > p{text-align: center; margin:50px 0;}
 .go-page{display: flex; justify-content: center;}
@@ -289,17 +289,8 @@ body.over{overflow: hidden;}
     .service-content .service-right .pur-button{margin:40px 0 100px 0}
     
     .business-gorl-img img{ width: 70%;}
-    .service-content .service-right{justify-content: center; justify-content: center;}
+    .service-content .service-right{justify-content: center;}
     .token-item{width: 100%;}
-    .road-page-btns{flex-wrap: wrap; }
-    .road-page-btns::after{display: none;}
-    .road-page-btn img {width: 100%;}
-    .road-page-btns{display: grid; grid-template-columns: repeat(2,1fr);}
-    .road-modal-pup p{font-size: 12px; margin:10px 0; text-indent: 0;}
-    .token{padding-top: 50px;}
-    .service, .business{padding-top: 50px;}
-    .token-box{margin:50px 20px;}
-    
     /*!서비스  */
     .platform-list{ grid-template-columns: repeat(2,1fr); gap: 10px;}
     .platform-category{font-size: 24px;}
@@ -368,7 +359,7 @@ body.over{overflow: hidden;}
    .about .about-partnership,.about .about-vision, .about .about-value, .about .about-partnership, .about .about-history{padding:0 !important; }
    .about .about-partnership{padding: 0;}
    .about-partner-top{margin-bottom: 20px; margin-top: 100px;}
-   .flower-bg{padding-top: 0;}
+   
    .token-info-list{padding: 30px;}
    /*!thtee.js   */
    #canvas{display: none;}
@@ -403,4 +394,4 @@ body.over{overflow: hidden;}
 
   
   
-  .token-hd{font-size: 20px; margin:20px 0; font-weight: 700;}
+  

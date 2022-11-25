@@ -114,17 +114,17 @@ $(document).ready(function () {
     })
     $('.road-modal02 ').click(function(){
         $('body').addClass('over');
-        $('.road-map-madal02').addClass('show');
+        $('.road-map-madal01').addClass('show');
         $('.modal-bg').addClass('show')
     })
     $('.road-modal03 ').click(function(){
         $('body').addClass('over');
-        $('.road-map-madal03').addClass('show');
+        $('.road-map-madal01').addClass('show');
         $('.modal-bg').addClass('show')
     })
     $('.road-modal04 ').click(function(){
         $('body').addClass('over');
-        $('.road-map-madal04').addClass('show');
+        $('.road-map-madal01').addClass('show');
         $('.modal-bg').addClass('show')
     })
     
