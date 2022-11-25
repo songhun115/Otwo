@@ -375,8 +375,8 @@ body.over{overflow: hidden;}
    .about-partner-top{margin-bottom: 20px; margin-top: 100px;}
    .flower-bg{padding-top: 0;}
    .token-info-list{padding: 30px;}
-   .otwo-img-two{display: flex; flex-direction: row; gap: 0;}
-   .otwo-img-two img{ width: 46%;}
+   .otwo-img-two{display: flex; flex-direction: row;}
+   .otwo-img-two img{ width: 50%;}
    /*!thtee.js   */
    #canvas{display: none;}
 
