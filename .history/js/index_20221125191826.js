@@ -109,7 +109,7 @@ $(document).ready(function () {
     });
     $('.road-modal01 ').click(function(){
         $('body').addClass('over');
-        $('.road-map-madal01').addClass('show');
+        $('.road-madal01').addClass('show');
         $('.modal-bg').addClass('show')
     })
    

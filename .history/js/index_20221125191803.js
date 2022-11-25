@@ -108,8 +108,9 @@ $(document).ready(function () {
         $("html, body").animate({ scrollTop: 0 }, 500);
     });
     $('.road-modal01 ').click(function(){
+        alert('hi')
         $('body').addClass('over');
-        $('.road-map-madal01').addClass('show');
+        $('.advisor-modal09').addClass('show');
         $('.modal-bg').addClass('show')
     })
    
