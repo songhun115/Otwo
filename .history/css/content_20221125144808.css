@@ -281,7 +281,7 @@ body.over{overflow: hidden;}
     /*!플랫폼  */
     .platform-table-content,.platform-over p{ font-size: 14px; line-height: 20px;} 
     .platform-table-content{margin:70px 0 0 0;}
-    .platform-over{padding-top: 100px !important; }
+    
     /*! 모달 */
     .advisor-modal{padding: 50px 20px 40px 20px}
     .advisor-modal-box{flex-direction: column; }
