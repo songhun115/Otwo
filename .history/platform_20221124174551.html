@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/content.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+        integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="js/index.js"></script>
+    <script src="js/three.js"></script>
+    <script src="js/three.min.js"></script>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <title>OTWO CHAIN | 오투체인</title>
+</head>
+
+<body>
+    <div class="contaeiner">
+
+        <header class="header" id="header"></header>
+        <nav class="mb-header">
+            <div class="mb-logo">
+                <a href="index.html">
+                    <img src="img/logo-white.svg" alt="">
+                </a>
+            </div>
+            <div class="trigger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+        <div id="mb-header"></div>
+
+        <div class="menu-bg"></div>
+        <section class="section overview">
+            <h3>PLATFORM</h3>
+            <h1>OTOO FOUNDATION</h1>
+            <p>OTWO 플랫폼이란, 운영 재단인 ‘OTWO Foundation’ 과 상호 비즈니스를 연동하여 수익을 창출하고 있는
+                주 거래처 또는 관계성을 지닌 기업들의 서비스가 하나의 Application 으로 통합된 생태계를 의미합니다.
+            </p>
+            <div class="platform-table-img">
+                <img src="img/platform.png" alt="">
+            </div>
+            <div class="platform-table-content">
+                <p>
+                    OTWO 플랫폼은 소비자와 생산자 이외에 마케터, 컨텐츠 제작자 등 다양한 계층의 사용자가 보다 쉽게 서로 상호작용하고 비즈니스를 구축할 수 있도록 고안된 B2B2C 플랫폼으로써 다양한 카테고리의 서비스와
+금융 거래가 하나로 통합된 환경 속에서 이루어질 수 있는 비즈니스 도구를 제공하는 것을 목표로 합니다. 
+                </p>
+                <p>
+                    “고객이 원하는 모든 것을 한곳에서” 라는 슬로건을 바탕으로 OTWO 토큰은 실제 지불 가능한 거래 수단이자 안전한 가상 자산으로써 OTWO 플랫폼 내 다양한 소비활동에 접목되어 활용될 것입니다.
+                </p>
+            </div>
+        </section>
+
+        <div class="flower-bg">
+            <img src="img/flower-bg.png" alt="">
+        </div>
+        <footer class="footer">
+            <div class="footer-left">
+                <img src="img/footer-left.png" alt="">
+            </div>
+            <div class="footer-right">
+                <p>info@otwocoin.com</p>
+                <p>copyright2022.otwo foundation. all rights reserved.</p>
+            </div>
+        </footer>
+        <script type="text/javascript">
+
+            $(document).ready(function () {
+                $("#header").load("load/header.html");
+                $("#mb-header").load("load/mb-header.html");
+
+            });
+
+        </script>
+</body>
+
+</html>
