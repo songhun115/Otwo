@@ -72,13 +72,13 @@ body.over{overflow: hidden;}
   .business-box-left .pur-button{margin-top: 80px;}
   .business-box-left{width: 58%;}
   business-box-right{width: 42%;}
-  .scroll-up{position: absolute;top:-50px;left: 50%;transform: translateX(-50%);text-align: center;}
+  .scroll-up{position: absolute;bottom: 0;left: 50%;transform: translateX(-50%);text-align: center;}
   #canvas{ height: 100%; max-height: 659px; position: relative;}
   #canvas canvas{width: 100% !important; position: relative;}
   /* #canvas canvas{ height: 1000px !important;} */
   /* #canvas canvas{height: 1000px;} */
   /*! 푸터   */
-  .footer{max-width: 1120px; margin: 0 auto; display: flex; justify-content: space-between; padding: 50px 0; width: 100%; position: relative;}
+  .footer{max-width: 1120px; margin: 0 auto; display: flex; justify-content: space-between; padding: 50px 0; width: 100%;}
   footer-left,
   .footer-right{width: 50%;}
   .footer-right{display: flex; justify-content: space-between; opacity: 0.4; font-size: 13px; line-height: 13px;}
