@@ -300,8 +300,7 @@ body.over{overflow: hidden;}
     .road-page-btns::after{display: none;}
     .road-page-btn img {width: 100%;}
     .road-page-btns{display: grid; grid-template-columns: repeat(2,1fr);}
-    .road-modal-pup p{font-size: 12px; margin:5px 0; text-indent: 0;}
-    .road-modal-pup h3{margin: 10px 0;}
+    .road-modal-pup p{font-size: 12px; margin:10px 0; text-indent: 0;}
     .token{padding-top: 50px;}
     .service, .business{padding-top: 50px;}
     .token-box{margin:50px 20px;}
@@ -358,7 +357,6 @@ body.over{overflow: hidden;}
     .overview{padding-top: 1;}
     .advisor-modal{width: 90%;}
     .modal-close{top: 13px; right: 26px;}
-    .road-modal-pup{width:95%;     padding: 20px 20px;}
    /*!쇼핑몰 */
    .shoping-mall-img{flex-direction: column;}
    .card::after {filter: blur(calc(var(--card-height) / 4));}

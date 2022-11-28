@@ -301,7 +301,7 @@ body.over{overflow: hidden;}
     .road-page-btn img {width: 100%;}
     .road-page-btns{display: grid; grid-template-columns: repeat(2,1fr);}
     .road-modal-pup p{font-size: 12px; margin:5px 0; text-indent: 0;}
-    .road-modal-pup h3{margin: 10px 0;}
+    .road-modal-pup h3{margin: 10px 0;;}
     .token{padding-top: 50px;}
     .service, .business{padding-top: 50px;}
     .token-box{margin:50px 20px;}
