@@ -11,71 +11,28 @@
     <meta property="og:image" content="img/meta-img.png">
     <meta property="og:url" content="http://otwochain.com/">
 
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/content.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
-    <script src="js/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+        integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="js/index.js"></script>
     <script src="js/three.js"></script>
     <script src="js/three.min.js"></script>
-    
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <title>OTWO CHAIN | 오투체인</title>
 </head>
 <style>
-    #splash-bg{top: 0; left: 0; width: 100vw; height: 100vh; position: fixed; animation: hideSplashScreen 3s ease-in-out forwards;   background-color: #000; z-index: 111; animation-delay: 0.5s;}
-#splash-logo{width: 10%; position: fixed; top: 50%; left: 50%; animation: hideSplashScreenLogo 3s ease-in-out forwards;  transform: translate(-50%, -50%); z-index: 111;  animation-delay: 0.5s;  }
-#splash-logo img {width: 100%; transition: 4s;transform: rotate(900deg);}
-@keyframes hideSplashScreen {
-    0%{
-        opacity: 1;
-    }
-    99%{
-      opacity: 0;
-    }
-    
-    100%{
-      opacity: 1;
-        visibility: hidden;
-    }
-}
-@keyframes hideSplashScreenLogo {
-    0%{
-      opacity: 1;
-        width: calc(10%);        
-        /* transform: rotateX(0deg); */
-    }
-    
-    99%{
-      opacity: 0;
-        width: calc(700%);
-        
-    }
-    100%{
-        opacity: 0;
-        width: calc(0%);
-        visibility: hidden;
-    }
-}
-    canvas{width: 100% !important; height: 100vh !important;}
-    #canvas{width: 100% !important; max-height: 300px !important;}
-    #canvas canvas{width: 100% !important;  max-height: 100%;}
-    @media(max-width:765px){
-        canvas{width: 100% !important; height: 100vh !important;}
-    #canvas{width: 100% !important; max-height: 300px !important;}
-    #canvas canvas{width: 100% !important;  max-height: 100%}
-    }
+   
    
 </style>
 <body>
-    <div class="curser-bg"></div>.
-    <div style-="z-index:-111111;" class="animation"></div>
-    <script src="js/canvas-intro.js"></script>
     
        
     <div class="contaeiner">
@@ -414,11 +371,9 @@
             
         </section>
     </div>
-    <div id="canvas">
+    
     </div>
-    <!-- <div class="flower-bg">
-        <img src="img/flower-bg.png" alt="">
-    </div> -->
+    
     <footer class="footer">
         <div class="scroll-up ">
             <p>BACK TO TOP</p>
@@ -432,7 +387,7 @@
             <p>copyright2022.otwo foundation. all rights reserved.</p>
         </div>
     </footer>
-    <script src="js/canvas-floor.js"></script>
+    
    
     <div id="splash-bg" class="splash-bg">
         <p>webgl로 제작된 본 사이트는 구글 크롬에 최적화 되어있습니다.</p>
