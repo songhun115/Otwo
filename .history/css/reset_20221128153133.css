@@ -116,7 +116,11 @@ body {
       visibility: hidden;
   }
 } */
+.splash2 {
 
+transition: 4s;
+transform: rotate(900deg);
+}
 
 
 a{color:#fff; text-decoration: none;}

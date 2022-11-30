@@ -19,7 +19,7 @@ function init() {
 
     const geometry = new THREE.BufferGeometry()
     const vertices = []
-    const size = 7000
+    const size = 9000
 
     for (let i = 0; i < 8000; i++) {
         const x = (Math.random() * size + Math.random() * size) / 2 - size / 2

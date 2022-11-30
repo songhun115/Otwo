@@ -32,7 +32,7 @@ function init() {
     geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3))
 
     material = new THREE.PointsMaterial({
-        size: 9,
+        size: 4,
         color: 0xFCA522,
     })
 
